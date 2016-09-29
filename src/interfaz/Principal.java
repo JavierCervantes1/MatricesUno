@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Javier Tareas
+ * @author Javier 
  */
 public class Principal extends javax.swing.JFrame {
 
@@ -160,28 +160,26 @@ public class Principal extends javax.swing.JFrame {
 
         nf = Integer.parseInt(txtNumerodeFilas.getText());
         nc = Integer.parseInt(txtNumerodeColumnas.getText());
-        
-        if (nf < 15 && nc < 15){
 
-        tm = (DefaultTableModel) tblTablaInicial.getModel();
-        tm2 = (DefaultTableModel) tblTablaResultado.getModel();
+        if (nf < 15 && nc < 15) {
 
-        tm.setRowCount(nf);
-        tm.setColumnCount(nc);
+            tm = (DefaultTableModel) tblTablaInicial.getModel();
+            tm2 = (DefaultTableModel) tblTablaResultado.getModel();
 
-        tm2.setRowCount(nf);
-        tm2.setColumnCount(nc);
-        }else {
-        JOptionPane.showMessageDialog(this, "Ha excedido el limite de filas y columnas disponibles", "Error", 2);
-                    txtNumerodeFilas.requestFocusInWindow();
-                    txtNumerodeFilas.selectAll();
+            tm.setRowCount(nf);
+            tm.setColumnCount(nc);
+
+            tm2.setRowCount(nf);
+            tm2.setColumnCount(nc);
+        } else {
+            JOptionPane.showMessageDialog(this, "Ha excedido el limite de filas y columnas disponibles", "Error", 2);
+            txtNumerodeFilas.requestFocusInWindow();
+            txtNumerodeFilas.selectAll();
         }
     }//GEN-LAST:event_cmdCrearActionPerformed
 
     private void cmdLlenadoAutomaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenadoAutomaticoActionPerformed
         int nf, nc, n;
-        
-        
 
         nc = tblTablaInicial.getColumnCount();
         nf = tblTablaInicial.getRowCount();
@@ -192,7 +190,7 @@ public class Principal extends javax.swing.JFrame {
                 tblTablaInicial.setValueAt(n, i, j);
             }
         }
-        
+
 
     }//GEN-LAST:event_cmdLlenadoAutomaticoActionPerformed
 
@@ -332,17 +330,17 @@ public class Principal extends javax.swing.JFrame {
 
             case 7:
 
-                if (nc > 2 && nf > 2) {
+                if (nc == nf && nc%2 != 0 && nf%2 !=0 && nc > 2 && nf > 2) {
                     for (int i = 0; i < nf; i++) {
                         for (int j = 0; j < nc; j++) {
                             aux = (int) tblTablaInicial.getValueAt(i, j);
-                            if (j == nc + ((nc - 1) / 2) - (i + 1) || i == ((nf) / 2) + j) {
+                            if (j == nc + ((nc) / 2) - (i + 1) || i == ((nf - 1) / 2) + j) {
                                 tblTablaResultado.setValueAt(aux, i, j);
                             }
                         }
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Insuficientes filas y columnas para formar la letra V", "Error", 2);
+                    JOptionPane.showMessageDialog(this, "Incorrectas filas y columnas para formar la letra V", "Error", 2);
                     txtNumerodeFilas.requestFocusInWindow();
                     txtNumerodeFilas.selectAll();
                 }
@@ -409,7 +407,7 @@ public class Principal extends javax.swing.JFrame {
                     for (int i = 0; i < nf; i++) {
                         for (int j = 0; j < nc; j++) {
                             aux = (int) tblTablaInicial.getValueAt(i, j);
-                            if (j == (nc-1)/2) {
+                            if (j == (nc - 1) / 2) {
                                 tblTablaResultado.setValueAt(aux, i, j);
                             }
                         }
@@ -420,17 +418,15 @@ public class Principal extends javax.swing.JFrame {
                     txtNumerodeColumnas.requestFocusInWindow();
                     txtNumerodeColumnas.selectAll();
                 }
-                        
-                
 
                 break;
-                case 12:
+            case 12:
 
                 if (nf == nc && nf > 2 && nc > 2) {
                     for (int i = 0; i < nf; i++) {
                         for (int j = 0; j < nc; j++) {
                             aux = (int) tblTablaInicial.getValueAt(i, j);
-                            if (j == 0 || j == nc-1 || i==j) {
+                            if (j == 0 || j == nc - 1 || i == j) {
                                 tblTablaResultado.setValueAt(aux, i, j);
                             }
                         }
@@ -443,15 +439,15 @@ public class Principal extends javax.swing.JFrame {
                 }
 
                 break;
-                    case 13:
-                        //Corregir
+            case 13:
+                //Corregir
 
                 if (nf == nc && nf > 2 && nc > 2) {
                     for (int i = 0; i < nf; i++) {
                         for (int j = 0; j < nc; j++) {
                             aux = (int) tblTablaInicial.getValueAt(i, j);
-                            
-                            if (j == nc/ 2 && j <= i || i + j == nf - 1 && i <= j || i == j && i + j <= nf) {
+
+                            if (j == nc / 2 && j <= i || i + j == nf - 1 && i <= j || i == j && i + j <= nf) {
                                 tblTablaResultado.setValueAt(aux, i, j);
                             }
                         }
@@ -464,7 +460,7 @@ public class Principal extends javax.swing.JFrame {
                 }
 
                 break;
-                        case 14:
+            case 14:
 
                 if (nf >= nc && nf > 2 && nc > 2) {
                     for (int i = 0; i < nf; i++) {
