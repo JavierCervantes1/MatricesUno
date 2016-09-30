@@ -148,6 +148,7 @@ public class Principal extends javax.swing.JFrame {
 
             }
         ));
+        tblTablaInicial.setEnabled(false);
         jScrollPane2.setViewportView(tblTablaInicial);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 360, 210));
