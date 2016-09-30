@@ -24,6 +24,10 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        JButton botonesH[] = {cmdCrear, cmdLimpiar};
+        JButton botonesD[] = {cmdOperacion, cmdLlenadoManual, cmdLlenadoAutomatico};
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
     }
 
     /**
